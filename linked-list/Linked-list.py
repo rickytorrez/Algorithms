@@ -14,7 +14,7 @@ class LinkedList:
     
     # constructor
     # __init__ to initalize this
-    # self is always gonna be one of the parameters
+        # self is always gonna be one of the parameters for constructor method
         # how we tell this is a method inside of a class instead of a function
         # value is also a param to create the first node at the time we initialize the linked list
     
@@ -53,4 +53,4 @@ class LinkedList:
 # creating a new linked-list
     # calls the LinkedList class and pass it the number 4
 my_linked_list = LinkedList(4)
-print(my_linked_list.head.value)
+print(my_linked_list.head.value) # 4
