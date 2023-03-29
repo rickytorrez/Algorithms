@@ -31,12 +31,42 @@ class LinkedList:
         self.tail = new_node
         # keep track of lentgh
         self.length = 1
+        
+    # print
+    def print_list (self):
+        # temp is a pointer to a node (self.head), 
+            # -> the node has two attibutes (value, next)
+        temp = self.head
+        # while we have not reached the end of the list, we'll print temp.value
+        while temp is not None:
+            # prints value
+            print(temp.value)
+            # moves the pointer over to the next node, loop stops running when temp is None
+            temp = temp.next
     
     # append 
         # create a node
-        # add a node to the end
+        # self keyword is how we know it's a method inside of a class versus being a stand alone function
+        # add a node to the end with value
     def append (self, value):
-        pass
+        # creates a new node and uses the Node constructor
+            # passes the value that we pass the append method, the Node class will create the node
+        new_node = Node(value)
+        # edge case for when we don't have any item on the list, head and tail are None (is the list empty)
+        if self.head is None:
+            # in this situation, we'll have head and tail point to the new node
+            self.head = new_node
+            self.tail = new_node
+        # if there are items already existing in the linked list
+        else:
+            # setting the tail.next equal to the new_node
+            self.tail.next = new_node
+            # move the tail to point to the new node (moves over, adds the node into the list)
+            self.tail = new_node
+        # increase the length of the list by 1
+        self.length += 1
+        # optional - not necessary as a stand alone method for the append method
+        return True
     
     # prepend
         # create a node
@@ -50,17 +80,11 @@ class LinkedList:
     def insert (self, value):
         pass
     
-    def print_list (self):
-        
-        # temp is a pointer to a node (self.head), 
-            # -> the node has two attibutes (value, next)
-        temp = self.head
-        while temp is not None:
-            print(temp.value)
-            temp = temp.next
+
     
     
 # creating a new linked-list
     # calls the LinkedList class and pass it the number 4
-my_linked_list = LinkedList(4)
-print(my_linked_list.head.value) # 4
+my_linked_list = LinkedList(1)
+my_linked_list.append(2)
+my_linked_list.print_list()
