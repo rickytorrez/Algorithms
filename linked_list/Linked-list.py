@@ -50,6 +50,16 @@ class LinkedList:
     def insert (self, value):
         pass
     
+    def print_list (self):
+        
+        # temp is a pointer to a node (self.head), 
+            # -> the node has two attibutes (value, next)
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+    
+    
 # creating a new linked-list
     # calls the LinkedList class and pass it the number 4
 my_linked_list = LinkedList(4)
