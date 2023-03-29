@@ -67,6 +67,38 @@ class LinkedList:
         self.length += 1
         # optional - not necessary as a stand alone method for the append method
         return True
+        
+    # pop
+        # creates two new variables temp & pre
+        # iterates through the list and removes the last node
+    def pop (self):
+        # edge case for when we have an empty linked list or if we only have one node in the list
+        if self.length == 0:
+            return None
+        # next case is if we have two or more items in the linked list
+            # we'll add two variables, temp and pre
+        temp = self.head
+        pre = self.head
+        
+        # walk through the linked list with a while loop -> while temp.next is true or while it's pointing to a node
+            # becomes false when at the end of a list when the pointer becomes None
+        while(temp.next): 
+            pre = temp
+            temp = temp.next
+        # points tail to the pre variable when while loop stops
+        self.tail = pre
+        # remove the last node, sets next on the tail to None
+        self.tail.next = None
+        # decrement the length by 1
+        self.length -= 1
+        # edge case for when we only have one node
+            # since we decrement from 1 -> 0, we set the head and tail to None
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        # returns the node that we just removed
+            # for testing purposes, you can return temp.value instead of the whole node
+        return temp.value
     
     # prepend
         # create a node
@@ -94,9 +126,21 @@ class LinkedList:
 ### adds a new node to the list ####
     #### calls the LinkedList class and pass it a value of 1 to create a new node
 # my_linked_list = LinkedList(1)
-    #### appends a new node and pass it the value of 2 to create a new node
+    #### appends a new node and pass it the value of 2 
 # my_linked_list.append(2)
     #### prints the new list -> 1, 2
 # my_linked_list.print_list()
+####
 
-
+####                            ####
+# removes the last node on a list ##
+    ### creates a linked list with a node of value 1
+my_linked_list = LinkedList(1)
+    ### adds a new node and pass it the value of 2
+my_linked_list.append(2)
+    ### (2) Items  - pops and returns Node 2
+print(my_linked_list.pop())
+    ### (1) Item - pops and returns Node 1
+print(my_linked_list.pop())
+    ### (0) Items - pops and returns Node 0
+print(my_linked_list.pop())
