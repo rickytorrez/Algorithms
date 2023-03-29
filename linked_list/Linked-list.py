@@ -82,9 +82,21 @@ class LinkedList:
     
 
     
-    
-# creating a new linked-list
-    # calls the LinkedList class and pass it the number 4
-my_linked_list = LinkedList(1)
-my_linked_list.append(2)
-my_linked_list.print_list()
+####                            ####
+#### creating a new linked-list ####
+    #### calls the LinkedList class and pass it the value of 4 to create a new node
+# my_linked_list = LinkedList(4)
+    #### prints the value of the head of the list
+#print(my_linked_list.head.value) # 4
+####
+
+####                            ####
+### adds a new node to the list ####
+    #### calls the LinkedList class and pass it a value of 1 to create a new node
+# my_linked_list = LinkedList(1)
+    #### appends a new node and pass it the value of 2 to create a new node
+# my_linked_list.append(2)
+    #### prints the new list -> 1, 2
+# my_linked_list.print_list()
+
+
