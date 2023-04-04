@@ -121,6 +121,27 @@ class LinkedList:
         self.length += 1
         # optional
         return True
+        
+    # pop first
+        # pops the first node of a list
+    def pop_first (self):
+        # if we have zero items on the list
+        if self.length == 0:
+            # return none
+            return None
+        # create a variable temp that will point to the head
+        temp = self.head
+        # point the head to self.head.next
+        self.head = self.head.next
+        # remove the pointer, set next equal no None for temp
+        temp.next = None
+        self.length -= 1
+        # if we have zero items on the list after we decremented the length by 1
+        if self.length == 0:
+            # set the tail to none
+            self.tail = None
+        # return the item we removed from the list - temp.value should not returned, only temp
+        return temp
     
     # insert
         # create a node
@@ -164,12 +185,27 @@ class LinkedList:
 ####                            ####
 # add node to the bef of the list ##
     ### creates a linked list with a node of value 2
+# my_linked_list = LinkedList(2)
+    ### adds a new node and pass it the value of 3
+# my_linked_list.append(3)
+    ### prints the list -> 2, 3
+# my_linked_list.print_list()
+    ### adds a new node to the beginning and pass it the value of 4
+# my_linked_list.prepend(4)
+    ### prints the list -> 4, 2, 3 
+# my_linked_list.print_list()
+
+####                            ####
+# remove the first node from list ##
+    ### creates a linked list with a node of value 2
 my_linked_list = LinkedList(2)
     ### adds a new node and pass it the value of 3
-my_linked_list.append(3)
-    ### prints the list -> 2, 3
-my_linked_list.print_list()
-    ### adds a new node to the beginning and pass it the value of 4
-my_linked_list.prepend(4)
-    ### prints the list -> 4, 2, 3 
-my_linked_list.print_list()
+my_linked_list.append(1)
+    ### prints the list -> 2, 1
+# my_linked_list.print_list()
+    ### (2) Items - Returns  2 Nodes
+print(my_linked_list.pop_first())
+    ### (1) Items - Returns  1 Nodes
+print(my_linked_list.pop_first())
+    ### (0) Items - Returns None
+print(my_linked_list.pop_first())
