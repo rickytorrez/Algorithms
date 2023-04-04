@@ -101,10 +101,26 @@ class LinkedList:
         return temp.value
     
     # prepend
-        # create a node
-        # add node to the beggining
+        # add a node at the beginning
+        # pass in a value
     def prepend (self, value):
-        pass
+        # create node with value
+        new_node = Node(value)
+        # if empty list
+        if self.length == 0:
+            # have head and tail point to the new node
+            self.head = new_node
+            self.tail = new_node
+        # if list is not empty
+        else:
+            # have the new node point next to the head
+            new_node.next = self.head
+            # once head has been set, have it point to the new node 
+            self.head = new_node
+        # increase the length of the list by 1
+        self.length += 1
+        # optional
+        return True
     
     # insert
         # create a node
@@ -135,12 +151,25 @@ class LinkedList:
 ####                            ####
 # removes the last node on a list ##
     ### creates a linked list with a node of value 1
-my_linked_list = LinkedList(1)
+# my_linked_list = LinkedList(1)
     ### adds a new node and pass it the value of 2
-my_linked_list.append(2)
+# my_linked_list.append(2)
     ### (2) Items  - pops and returns Node 2
-print(my_linked_list.pop())
+# print(my_linked_list.pop())
     ### (1) Item - pops and returns Node 1
-print(my_linked_list.pop())
+# print(my_linked_list.pop())
     ### (0) Items - pops and returns Node 0
-print(my_linked_list.pop())
+# print(my_linked_list.pop())
+
+####                            ####
+# add node to the bef of the list ##
+    ### creates a linked list with a node of value 2
+my_linked_list = LinkedList(2)
+    ### adds a new node and pass it the value of 3
+my_linked_list.append(3)
+    ### prints the list -> 2, 3
+my_linked_list.print_list()
+    ### adds a new node to the beginning and pass it the value of 4
+my_linked_list.prepend(4)
+    ### prints the list -> 4, 2, 3 
+my_linked_list.print_list()
