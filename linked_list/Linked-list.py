@@ -159,6 +159,21 @@ class LinkedList:
             temp = temp.next
         # once for loop iterates to the index that we pass, we return the node
         return temp
+        
+    # set
+        # pass in an index and value to change on a specific node
+    def set_value (self, index, value):
+        # use the get method to have temp point to the appropiate node
+            # get will either get None for invalid index or a node
+        temp = self.get(index)
+        # test to see if temp has any value -> if temp is not None
+        if temp:
+            # update temp value to the value passed in this method
+            temp.value = value
+            # return True
+            return True
+        # if the get method returns None - invalid index
+        return False
     
     # insert
         # create a node
@@ -230,12 +245,27 @@ class LinkedList:
 ####                            ####
 ###### get a node from list ########
     ### creates a linked list with a node of value 0
-my_linked_list = LinkedList(0)
+# my_linked_list = LinkedList(0)
     ### adds a new node and pass it the value of 1
-my_linked_list.append(1)
+# my_linked_list.append(1)
     ### adds a new node and pass it the value of 2
-my_linked_list.append(2)
+# my_linked_list.append(2)
+    ### adds a new node and pass it the value of 3
+# my_linked_list.append(3)
+    ### gets the node at index 2
+# print(my_linked_list.get(2))
+
+####                            ####
+###### get a node from list ########
+    ### creates a linked list with a node of value 11
+my_linked_list = LinkedList(11)
     ### adds a new node and pass it the value of 3
 my_linked_list.append(3)
-    ### gets the node at index 2
-print(my_linked_list.get(2))
+    ### adds a new node and pass it the value of 23
+my_linked_list.append(23)
+    ### adds a new node and pass it the value of 7
+my_linked_list.append(7)
+    ### sets the value on the 2 index to 4
+print(my_linked_list.set_value(1, 4))
+    ### prints the list with updated value at index of 1
+my_linked_list.print_list()
