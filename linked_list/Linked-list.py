@@ -143,6 +143,38 @@ class LinkedList:
         # return the item we removed from the list - temp.value should not returned, only temp
         return temp
     
+    # get
+        # pass in an index that returns the node at that index
+    def get(self, index):
+        # check to have a valid index
+            # if index is less than 0 or index is greater than or equal to the length
+        if index < 0 or index >= self.length:
+            # return None sine we can't get a node at any of those indexes
+            return None
+        # create a variable called temp and set it equal to the head
+        temp = self.head
+        # whatever the index is, we will need temp that many times over
+            # create a for loop that will run that number of times and get us to the correct node
+        for _ in range(index):
+            temp = temp.next
+        # once for loop iterates to the index that we pass, we return the node
+        return temp
+        
+    # set
+        # pass in an index and value to change on a specific node
+    def set_value (self, index, value):
+        # use the get method to have temp point to the appropiate node
+            # get will either get None for invalid index or a node
+        temp = self.get(index)
+        # test to see if temp has any value -> if temp is not None
+        if temp:
+            # update temp value to the value passed in this method
+            temp.value = value
+            # return True
+            return True
+        # if the get method returns None - invalid index
+        return False
+    
     # insert
         # create a node
         # insert that node to whatever index you want that
@@ -198,14 +230,42 @@ class LinkedList:
 ####                            ####
 # remove the first node from list ##
     ### creates a linked list with a node of value 2
-my_linked_list = LinkedList(2)
-    ### adds a new node and pass it the value of 3
-my_linked_list.append(1)
+# my_linked_list = LinkedList(2)
+    ### adds a new node and pass it the value of 1
+# my_linked_list.append(1)
     ### prints the list -> 2, 1
 # my_linked_list.print_list()
     ### (2) Items - Returns  2 Nodes
-print(my_linked_list.pop_first())
+# print(my_linked_list.pop_first())
     ### (1) Items - Returns  1 Nodes
-print(my_linked_list.pop_first())
+# print(my_linked_list.pop_first())
     ### (0) Items - Returns None
-print(my_linked_list.pop_first())
+# print(my_linked_list.pop_first())
+
+####                            ####
+###### get a node from list ########
+    ### creates a linked list with a node of value 0
+# my_linked_list = LinkedList(0)
+    ### adds a new node and pass it the value of 1
+# my_linked_list.append(1)
+    ### adds a new node and pass it the value of 2
+# my_linked_list.append(2)
+    ### adds a new node and pass it the value of 3
+# my_linked_list.append(3)
+    ### gets the node at index 2
+# print(my_linked_list.get(2))
+
+####                            ####
+###### get a node from list ########
+    ### creates a linked list with a node of value 11
+my_linked_list = LinkedList(11)
+    ### adds a new node and pass it the value of 3
+my_linked_list.append(3)
+    ### adds a new node and pass it the value of 23
+my_linked_list.append(23)
+    ### adds a new node and pass it the value of 7
+my_linked_list.append(7)
+    ### sets the value on the 2 index to 4
+print(my_linked_list.set_value(1, 4))
+    ### prints the list with updated value at index of 1
+my_linked_list.print_list()
