@@ -178,10 +178,36 @@ class LinkedList:
     # insert
         # create a node
         # insert that node to whatever index you want that
-    def insert (self, value):
-        pass
-    
-
+    def insert (self, index, value):
+        # out of range
+        # cant have anything that is out of bounds - ie: index < 0 or index > self.length
+        if index < 0 or index >= self.length:
+            # return false if not successful
+            return False
+        # adding to beggining - if index is at initial node, use the created prepend method to add the value to that node
+        if index == 0:
+            # once prepend method runs, be done
+            # run this on this particular instance of the linked list (self)
+            return self.prepend(value)
+        # adding to the end - if the index is equal to the length, add the value to the end of the the list 
+        if index == self.length:
+            # once append method runs, be done
+            return self.append(value)
+        # adding to the somewhere in the middle
+        # creates a new node
+        new_node = Node(value)
+        # creates the temp variable which is equal to index - 1 to point to the appropiate node
+            # index - 1 needs to point to the new node in order to insert it
+        temp = self.get(index - 1)
+        # sets the pointer of the new node to temp.next
+        new_node.next = temp.next
+        # sets temp.next to point to the new_node
+        temp.next = new_node
+        # increment list by 1
+        self.length += 1
+        # return true if successful
+        return True
+        
     
 ####                            ####
 #### creating a new linked-list ####
@@ -258,14 +284,28 @@ class LinkedList:
 ####                            ####
 ###### get a node from list ########
     ### creates a linked list with a node of value 11
-my_linked_list = LinkedList(11)
+# my_linked_list = LinkedList(11)
     ### adds a new node and pass it the value of 3
-my_linked_list.append(3)
+# my_linked_list.append(3)
     ### adds a new node and pass it the value of 23
-my_linked_list.append(23)
+# my_linked_list.append(23)
     ### adds a new node and pass it the value of 7
-my_linked_list.append(7)
+# my_linked_list.append(7)
     ### sets the value on the 2 index to 4
-print(my_linked_list.set_value(1, 4))
+# print(my_linked_list.set_value(1, 4))
+    ### prints the list with updated value at index of 1
+# my_linked_list.print_list()
+
+####                            ####
+##### insert node to a list ########
+    ### creates a linked list with a node of value 0
+my_linked_list = LinkedList(0)
+    ### adds a new node and pass it the value of 3
+my_linked_list.append(2)
     ### prints the list with updated value at index of 1
 my_linked_list.print_list()
+    ### inserts a value of 1 into index of 1
+my_linked_list.insert(1, 1)
+    ### prints the list with updated value at index of 1
+my_linked_list.print_list()
+
